@@ -397,6 +397,45 @@ class GeoElevationFile:
 
         return result
 
+    def _natural_neighbor(self, latitude, longitude):
+
+        # Increase row is decrease latitude
+        # Increase col is increase longitude
+        #   3__2
+        #  |\  /|
+        # 4|_\/_|1
+        # 5| /\ |8
+        #  |/__\|
+        #   6  7
+
+        # Point matrix for section 1
+        matrix = [(-1, 0), (-1, 1), (-1, 2),
+                  (0, 0), (0, 1), (0, 2)]
+
+        matrix = [(-2,0),(-2,1),
+                  (-1,0),(-1,1),
+                  (0,0),(0,1)]
+        
+        print((latitude, longitude))
+        vertices = []
+        vertices.append(self.get_row_and_column(latitude, longitude))
+        baselat, baselong = self.get_lat_and_long(vertices[0][0]+10, vertices[0][1]+10)
+        print((baselat, baselong))
+
+        if latitude < baselat: # 5, 6, 7, 8
+            pass #multiply [0] by -1
+
+        if longitude < baselong: # 3, 4, 5, 6
+            pass # multiply [1] by -1
+
+        if difflat < difflong: # use abs and cos, 2, 3, 6, 7
+            pass # swap and negate each
+
+
+
+        
+        print(vertices)
+
     def get_elevation_from_row_and_column(self, row, column):
         i = row * (self.square_side) + column
         assert i < len(self.data) - 1
