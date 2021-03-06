@@ -169,13 +169,13 @@ class GeoElevationData:
             return None
         if version == 'v3.1a':
             if GeoElevationData.tile_index[tilename][4]:
-                return 'https://e4ftl01.cr.usgs.gov/MODV6_Dal_D/SRTM/SRTMGL1.003/2000.02.11/{}.SRTMGL1.hgt.zip'.format(tilename)
+                return 'https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL1.003/2000.02.11/{}.SRTMGL1.hgt.zip'.format(tilename)
         elif version == 'v3.3a':
             if GeoElevationData.tile_index[tilename][4]:
-                return 'https://e4ftl01.cr.usgs.gov/MODV6_Dal_D/SRTM/SRTMGL3.003/2000.02.11/{}.SRTMGL3.hgt.zip'.format(tilename)
+                return 'https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL3.003/2000.02.11/{}.SRTMGL3.hgt.zip'.format(tilename)
         elif version == 'v3.3as':
             if GeoElevationData.tile_index[tilename][4]:
-                return 'https://e4ftl01.cr.usgs.gov/MODV6_Dal_D/SRTM/SRTMGL3S.003/2000.02.11/{}.SRTMGL3S.hgt.zip'.format(tilename)
+                return 'https://e4ftl01.cr.usgs.gov/MEASURES/SRTMGL3S.003/2000.02.11/{}.SRTMGL3S.hgt.zip'.format(tilename)
         elif version == 'v2.1a':
             if GeoElevationData.tile_index[tilename][2]:
                 return 'https://dds.cr.usgs.gov/srtm/version2_1/SRTM1/Region_{}/{}.hgt.zip'.format(GeoElevationData.tile_index[tilename][2], tilename)
